@@ -1,0 +1,25 @@
+<% provide(:title, @study.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @study.name %>
+      </h1>
+      <p>
+        <%= @study.description %>
+      </p>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @study.participants.any? %>
+      <h3>Participants (<%= @study.participants.count %>)</h3>
+      <ol class="participants">
+        <%= render @participants %>
+        <li> <%= link_to "Add another participant", new_study_participant_path(@study) %> </li>
+      </ol>
+      <%= will_paginate @participants %>
+    <% else %>
+    <%= link_to "Add a participant", new_study_participant_path(@study) , class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

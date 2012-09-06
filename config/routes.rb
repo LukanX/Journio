@@ -1,4 +1,14 @@
 Journio::Application.routes.draw do
+  resources :studies do
+    resources :participants
+  end
+  
+  root to: 'static_pages#home'
+
+  get "static_pages/help"
+
+  match '/createstudy', to: 'studies#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

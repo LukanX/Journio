@@ -1,3 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
+  def new
+  end
+
+  def current_study
+  	@current_study ||= Study.find_by_id(params[:study_id])
+  end
+  helper_method :current_study
+  
 end
