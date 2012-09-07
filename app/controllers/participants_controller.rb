@@ -17,7 +17,6 @@ class ParticipantsController < ApplicationController
   def show
     @study = current_study
     @participant = Participant.find(params[:id])
-    @entries = @participant.entries.paginate(page: params[:page])
   end
 
   def destroy
