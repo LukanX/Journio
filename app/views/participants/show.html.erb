@@ -1,0 +1,21 @@
+<% provide(:title, @participant.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @participant.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @participant.entries.any? %>
+      <h3>Participants (<%= @participant.entries.count %>)</h3>
+      <ol class="entries">
+        <%= render @entries %>
+      </ol>
+      <%= will_paginate @entries %>
+    <% else %>
+    <h3> No entries yet </h3>
+    <% end %>
+  </div>
+</div>

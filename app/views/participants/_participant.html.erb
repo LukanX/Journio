@@ -1,5 +1,5 @@
 <li>
-  <span class="name"><%= participant.name %></span>
+  <span class="name"><%= link_to participant.name, study_participant_path(@study, participant.id) %></span>
   <span class="details">
     <%= participant.email %> | <%= participant.phone_number %>
   </span>

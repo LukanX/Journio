@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906145705) do
+ActiveRecord::Schema.define(:version => 20120906204246) do
+
+  create_table "entries", :force => true do |t|
+    t.string   "content"
+    t.integer  "participant_id"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "type",           :default => "received"
+  end
+
+  add_index "entries", ["participant_id", "created_at"], :name => "index_entries_on_participant_id_and_created_at"
 
   create_table "participants", :force => true do |t|
     t.string   "name"

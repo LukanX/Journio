@@ -14,6 +14,12 @@ class ParticipantsController < ApplicationController
   	@participant = current_study.participants.new
   end
 
+  def show
+    @study = current_study
+    @participant = Participant.find(params[:id])
+    @entries = @participant.entries.paginate(page: params[:page])
+  end
+
   def destroy
   end
 

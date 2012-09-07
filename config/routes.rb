@@ -1,6 +1,9 @@
 Journio::Application.routes.draw do
   resources :studies do
-    resources :participants
+    resources :sms, :only => [:create]
+    resources :participants do
+      resources :entries
+    end
   end
   
   root to: 'static_pages#home'
