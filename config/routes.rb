@@ -1,8 +1,8 @@
 Journio::Application.routes.draw do
   resources :studies do
-    resources :sms, :only => [:create]
+    resources :sms, only: [:create]
+    resources :messages, only: [:create]
     resources :participants do
-      resources :entries
     end
   end
   
