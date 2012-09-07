@@ -175,6 +175,22 @@ input, textarea, select, .uneditable-input {
   }
 }
 
+ /* studies index */
+
+.studies {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    font-size: 1.5em;
+    &:last-child {
+      padding: 15px 0;
+      font-size: 1em;
+    }
+  }
+}
+
 /* participants */
 
 .participants {

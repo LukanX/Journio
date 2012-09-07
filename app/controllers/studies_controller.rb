@@ -9,6 +9,10 @@ class StudiesController < ApplicationController
   	@study = Study.new
   end
 
+  def index
+  	@studies = Study.all
+  end
+
   def create
   	@study = Study.new(params[:study])
   	if @study.save

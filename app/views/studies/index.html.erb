@@ -1,0 +1,19 @@
+<div class="center hero-unit">
+  <h1>Welcome to Journio</h1>
+
+  <h2>
+    This is the homepage for Journio
+  </h2>
+  <% if Study.any? %>
+	<ul class = "studies">
+	  <% @studies.each do |study| %>
+		  <li>
+		  	<%= link_to study.name, study %>
+		  </li>
+	  <% end %>
+	  <li class = "final_link"> <%= link_to "Add a study", createstudy_path %></li>  
+	</ul>  
+  <% else %>
+  <%= link_to "Create a study", createstudy_path, class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>

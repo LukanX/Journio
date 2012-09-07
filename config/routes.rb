@@ -6,7 +6,7 @@ Journio::Application.routes.draw do
     end
   end
   
-  root to: 'static_pages#home'
+  root to: 'studies#index'
 
   get "static_pages/help"
 
