@@ -8,6 +8,13 @@
     </section>
   </aside>
   <div class="span8">
-    <h3> No entries yet </h3>
+    <h3> Entries </h3>
+    <ol class = "entries">
+      <% @account.sms.messages.list({:from => @participant.phone_number}).each do |sms| %>
+        <li>
+          <span class="content"><%= sms.body %></span>
+        </li>
+      <% end %>
+    </ol>
   </div>
 </div>
