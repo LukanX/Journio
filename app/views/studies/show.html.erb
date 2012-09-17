@@ -5,12 +5,16 @@
       <h1>
         <%= @study.name %>
       </h1>
-      <p>
+      <h5>
         <%= @study.description %>
+      </h5>
+      <p>
+       <%= link_to "edit", edit_study_path %> | <%= link_to "delete", study_path, method: :delete,
+                                  data: { confirm: "You sure?" } %>
       </p>
      <%= form_tag(study_sms_path(@study), :method => :post) do %>
       <%= text_area_tag :message %>
-       <%= submit_tag "Submit" %>
+       <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
      <% end %>
     </section>
   </aside>

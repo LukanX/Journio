@@ -22,4 +22,24 @@ class StudiesController < ApplicationController
   		render 'new'
   	end
   end
+
+  def edit
+  	@study = Study.find(params[:id])
+  end
+
+  def update
+  	@study = Study.find(params[:id])
+    if @study.update_attributes(params[:study])
+      flash[:success] = "Study updated"
+      redirect_to @study
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Study.find(params[:id]).destroy
+    flash[:success] = "Study deleted"
+    redirect_to root_path
+  end
 end

@@ -5,6 +5,10 @@
       <h1>
         <%= @participant.name %>
       </h1>
+      <p>
+       <%= link_to "edit", edit_study_participant_path(@study, @participant.id) %> | <%= link_to "delete", study_participant_path, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+      </p>
     </section>
   </aside>
   <div class="span8">
