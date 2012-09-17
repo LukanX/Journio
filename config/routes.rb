@@ -3,6 +3,7 @@ Journio::Application.routes.draw do
     resources :sms, only: [:create]
     resources :messages, only: [:create]
     resources :participants do
+      resources :single_sms, only: [:create]
     end
   end
   

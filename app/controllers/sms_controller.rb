@@ -7,7 +7,7 @@ class SmsController < ApplicationController
       current_study.participants.each do |participant|
         participant.send_sms(message)
       end
-      flash[:success] = "You've send a text!"
+      flash[:success] = "You've sent a text!"
     else
       flash[:error] = "Enter a message."
     end
