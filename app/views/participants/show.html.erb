@@ -10,7 +10,7 @@
   <div class="span8">
     <h3> Entries </h3>
     <ol class = "entries">
-      <% @account.sms.messages.list( { :from => @participant.phone_number } || { :to => @participant.phone_number } ).each do |sms| %>
+      <% @account.sms.messages.list( { from: @participant.phone_number } ).each do |sms| %>
         <li>
           <span class="content"><%= sms.body %></span>
           <span class="timestamp"> <%= sms.direction %> | <%= sms.date_sent %>
