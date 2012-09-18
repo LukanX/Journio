@@ -19,7 +19,7 @@
     <h3> Entries </h3>
     <ol class = "entries">
       <% @participant.messages.sort{ |a, b| a.date_sent <=> b.date_sent }.each do |sms| %>
-        <li>
+        <li class = <%= sms.direction %> >
           <span class="content"><%= sms.body %></span>
           <span class="timestamp"> <%= sms.direction %> | <%= sms.date_sent %>
         </li>
