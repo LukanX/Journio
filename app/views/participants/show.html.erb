@@ -18,7 +18,7 @@
   <div class="span8">
     <h3> Entries </h3>
     <ol class = "entries">
-      <% @account.sms.messages.list( { from: @participant.phone_number } ).each do |sms| %>
+      <% @participant.messages.sort{ |a, b| a.date_sent <=> b.date_sent }.each do |sms| %>
         <li>
           <span class="content"><%= sms.body %></span>
           <span class="timestamp"> <%= sms.direction %> | <%= sms.date_sent %>

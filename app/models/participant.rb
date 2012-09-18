@@ -22,7 +22,35 @@ class Participant < ActiveRecord::Base
       :body => message
     )
   end
+
+#  def inbound_messages
+#    message_direction(direction = "inbound")    
+#  end
+
+#  def outbound_messages
+#    message_direction(direction = "outbound-api")    
+#  end
+
+#  def message_direction(direction)
+#    messages.select{|message| message.direction == direction}
+#  end
+
+  def messages
+    @messages = inbound_messages.concat(outbound_messages)
+  end
+
+  def inbound_messages
+    @inbound_messages ||= account.sms.messages.list({ from: self.phone_number} )
+  end
+
+  def outbound_messages
+    @outbound_messages ||= account.sms.messages.list({ to: self.phone_number} )
+  end
   
+  def account
+    @account ||= twilio_setup
+  end
+
   def twilio_setup
     @account_sid = 'ACe105d35539084e82b0b6c678c9d31d45'
     @auth_token = '77eee3539875f303400e4ad10f17f26c'
