@@ -11,9 +11,10 @@ en:
      hour_minute: "%l:%M %p"
      day: "%a"
      fullday: "%A"
+     sms_timestamp: "%a, %b %d, %Y @ %l:%M %p %Z"
  date:
    formats:
      day: "%a"
      month_day_hour_minute_meridian: "%b %d, %Y @ %l:%M %p"
-     month_day_hour_minute_meridian_timezone: "%b %d, %Y @ %l:%M %p %Z"
+     sms_format: "%a, %b %d, %Y @ %l:%M %p %Z"
      fullday: "%A"

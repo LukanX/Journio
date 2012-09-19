@@ -37,7 +37,7 @@ class Participant < ActiveRecord::Base
 
 
   def messages
-    @messages = inbound_messages.concat(outbound_messages)
+    @messages ||= inbound_messages.concat(outbound_messages)
   end
 
   def inbound_messages
