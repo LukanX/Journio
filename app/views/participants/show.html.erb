@@ -21,7 +21,7 @@
       <% @participant.messages.sort{ |a, b| Time.parse(a.date_sent) <=> Time.parse(b.date_sent) }.each do |sms| %>
         <li class = <%= sms.direction %> >
           <span class="content"><%= sms.body %></span>
-          <span class="timestamp"> <%= sms.direction %> | <%= sms.date_sent %>
+          <span class="timestamp"> Sent on <%= sms.date_sent %>
         </li>
       <% end %>
     </ol>
