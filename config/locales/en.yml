@@ -2,4 +2,18 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+ time:
+   formats:
+     military_date_hour_second: "%H:%M:%S"
+     date_hour: "%l:%M %p"
+     month_day_hour_minute_meridian: "%b %d, %Y @ %l:%M %p"
+     hour_date: "%l:%M %p on %b %d, %Y"
+     hour_minute: "%l:%M %p"
+     day: "%a"
+     fullday: "%A"
+ date:
+   formats:
+     day: "%a"
+     month_day_hour_minute_meridian: "%b %d, %Y @ %l:%M %p"
+     month_day_hour_minute_meridian_timezone: "%b %d, %Y @ %l:%M %p %Z"
+     fullday: "%A"
