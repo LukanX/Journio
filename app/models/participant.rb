@@ -35,6 +35,10 @@ class Participant < ActiveRecord::Base
 #    messages.select{|message| message.direction == direction}
 #  end
 
+  def date
+    @date = Time.parse messages.date_sent
+  end
+
   def messages
     @messages = inbound_messages.concat(outbound_messages)
   end
