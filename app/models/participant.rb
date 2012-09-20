@@ -37,6 +37,10 @@ class Participant < ActiveRecord::Base
 
 
   def messages
+    @messages ||= combined_messages.sort{ |a, b| Time.parse(a.date_sent) <=> Time.parse(b.date_sent) }
+  end
+
+  def combined_messages
     @messages ||= inbound_messages.concat(outbound_messages)
   end
 
