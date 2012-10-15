@@ -1,4 +1,5 @@
 Journio::Application.routes.draw do
+
   resources :studies do
     resources :sms, only: [:create]
     resources :messages, only: [:create]
@@ -6,12 +7,14 @@ Journio::Application.routes.draw do
       resources :single_sms, only: [:create]
     end
   end
+  resources :users
   
   root to: 'studies#index'
 
   get "static_pages/help"
 
   match '/createstudy', to: 'studies#new'
+  match '/signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
