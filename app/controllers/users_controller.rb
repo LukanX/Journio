@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
 	 @user = User.new(params[:user])
 	 if @user.save
-	 	flash[:success] = "You have created an account!"
+    sign_in @user
+	 	flash[:success] = "Welcome to Journio!"
 	 	redirect_to @user
 	 else
 	 	render 'new'
