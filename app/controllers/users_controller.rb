@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:edit, :update]
   def new
   	@user = User.new
   end
@@ -19,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def index
-  	#show all users
+  	@users = User.paginate(page: params[:page])
   end
 
   def edit
@@ -39,4 +42,18 @@ class UsersController < ApplicationController
   def destroy
   	#destroy user
   end
+
+  private
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in."
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
 end
