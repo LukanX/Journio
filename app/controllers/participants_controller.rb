@@ -1,4 +1,6 @@
 class ParticipantsController < ApplicationController
+  before_filter :signed_in_user, only: :show
+  before_filter :admin_user,     only: [:destroy, :edit, :update, :new, :create]
 
   def create
   	 @participant = current_study.participants.new(params[:participant])

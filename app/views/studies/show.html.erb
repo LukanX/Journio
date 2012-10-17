@@ -9,13 +9,16 @@
         <%= @study.description %>
       </h5>
       <p>
-       <%= link_to "edit", edit_study_path %> | <%= link_to "delete", study_path, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+        <% if current_user.admin? %>
+           <%= link_to "edit", edit_study_path %> | <%= link_to "delete", study_path, method: :delete, data: { confirm: "You this study?" } %>
+        <% end %>
       </p>
-     <%= form_tag(study_sms_path(@study), :method => :post) do %>
-      <%= text_area_tag :message %>
-       <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
-     <% end %>
+        <% if current_user.admin? %>
+          <%= form_tag(study_sms_path(@study), :method => :post) do %>
+            <%= text_area_tag :message %>
+             <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
+          <% end %>
+        <% end %>
     </section>
   </aside>
   <div class="span8">
@@ -23,11 +26,17 @@
       <h3>Participants (<%= @study.participants.count %>)</h3>
       <ol class="participants">
         <%= render @participants %>
-        <li> <%= link_to "Add another participant", new_study_participant_path(@study) %> </li>
+        <% if current_user.admin? %>
+          <li> <%= link_to "Add another participant", new_study_participant_path(@study) %> </li>
+        <% end %>
       </ol>
       <%= will_paginate @participants %>
     <% else %>
-    <%= link_to "Add a participant", new_study_participant_path(@study) , class: "btn btn-large btn-primary" %>
+      <% if current_user.admin? %>
+        <%= link_to "Add a participant", new_study_participant_path(@study) , class: "btn btn-large btn-primary" %>
+        <% else %>
+        <h3> This study currently has no participants </h3>
+        <% end %>
     <% end %>
   </div>
 </div>

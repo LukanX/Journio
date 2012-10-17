@@ -6,13 +6,17 @@
         <%= @participant.name %>
       </h1>
       <p>
-       <%= link_to "edit", edit_study_participant_path(@study, @participant.id) %> | <%= link_to "delete", study_participant_path, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+        <% if current_user.admin? %>
+         <%= link_to "edit", edit_study_participant_path(@study, @participant.id) %> | <%= link_to "delete", study_participant_path, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+        <% end %>
       </p>
-      <%= form_tag(study_participant_single_sms_path(current_study, @participant), :method => :post) do %>
-      <%= text_area_tag :message %>
-       <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
-     <% end %>
+       <% if current_user.admin? %>
+          <%= form_tag(study_participant_single_sms_path(current_study, @participant), :method => :post) do %>
+            <%= text_area_tag :message %>
+            <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
+          <% end %>
+        <% end %>
     </section>
   </aside>
   <div class="span8">
