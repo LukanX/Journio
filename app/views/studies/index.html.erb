@@ -4,18 +4,25 @@
   <h2>
     This is the homepage for Journio
   </h2>
-  <% if Study.any? %>
-	<ul class = "studies">
-	  <% @studies.each do |study| %>
-		  <li>
-		  	<%= link_to study.name, study %>
-		  </li>
+  <% if signed_in? %>
+	  <% if Study.any? %>
+		<ul class = "studies">
+		  <% @studies.each do |study| %>
+			  <li>
+			  	<%= link_to study.name, study %>
+			  </li>
+		  <% end %>
+		  <% if current_user.admin? %>
+		  	<li class = "final_link"> <%= link_to "Add a study", createstudy_path %></li> 
+		  <% end %> 
+		</ul>  
+	  <% else %>
+	  <%= link_to "Create a study", createstudy_path, class: "btn btn-large btn-primary" %>
 	  <% end %>
-	  <% if current_user.admin? %>
-	  	<li class = "final_link"> <%= link_to "Add a study", createstudy_path %></li> 
-	  <% end %> 
-	</ul>  
   <% else %>
-  <%= link_to "Create a study", createstudy_path, class: "btn btn-large btn-primary" %>
+  	<ul>
+  		<%= link_to "Sign in", signin_path, class: "btn btn-large btn-primary" %>
+		<p><%= link_to "Or create an account", signup_path %></p>
+	</ul>
   <% end %>
 </div>
