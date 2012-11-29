@@ -1,5 +1,5 @@
 <% provide(:title, @participant.name) %>
-<% Time.zone = @participant.time_zone %>
+<% Time.zone ||= @participant.time_zone %>
 <div class="row">
   <aside class="span4">
     <section>
