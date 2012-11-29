@@ -40,6 +40,7 @@ class ParticipantsController < ApplicationController
     @account = @client.account
     @study = current_study
     @participant = Participant.find(params[:id])
+    Time.zone = @participant.time_zone
   end
 
   def destroy
