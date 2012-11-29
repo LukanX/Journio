@@ -24,7 +24,6 @@
     <h3> Entries </h3>
     <ol class = "entries">
       <% @participant.messages.each do |sms| %>
-       <% Time.zone ||= @participant.time_zone %>
         <li class = <%= sms.direction %> >
           <span class="content"><%= sms.body %></span>
           <span class="timestamp">Sent on <%= l(Time.parse(sms.date_sent), :format => :sms_timestamp)  %>
