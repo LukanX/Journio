@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127205607) do
+ActiveRecord::Schema.define(:version => 20121129164605) do
 
   create_table "participants", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20121127205607) do
     t.integer  "study_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "time_zone"
   end
 
   add_index "participants", ["study_id"], :name => "index_participants_on_study_id"

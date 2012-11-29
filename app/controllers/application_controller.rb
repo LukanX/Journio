@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   	@current_participant ||= participant.find_by_id(params[:participant_id])
   end
 
+
   helper_method :current_study
   helper_method :current_participant
 

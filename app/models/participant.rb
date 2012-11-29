@@ -1,5 +1,5 @@
 class Participant < ActiveRecord::Base
-  attr_accessible :email, :name, :phone_number, :study_id
+  attr_accessible :email, :name, :phone_number, :study_id, :time_zone
   belongs_to :study
 
   validates :name, presence: true, length: { maximum: 40 }
