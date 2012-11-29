@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017185305) do
-
-  create_table "messages", :force => true do |t|
-    t.string   "to_number"
-    t.string   "from_number"
-    t.string   "content"
-    t.integer  "study_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121127205607) do
 
   create_table "participants", :force => true do |t|
     t.string   "name"
