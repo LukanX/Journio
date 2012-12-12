@@ -1,13 +1,11 @@
 class ChangeScheduledAtToDatetime < ActiveRecord::Migration
   def up
-  	change_table :scheduled_messages do |t|
-      t.change :scheduled_at, :datetime
-    end
+  	remove_column :scheduled_message, :scheduled_at
+    add_column :scheduled_message, :scheduled_at, :datetime
   end
 
   def down
-  	change_table :scheduled_messages do |t|
-  		t.change :scheduled_at, :time
-	end
+    remove_column :scheduled_message, :scheduled_at
+  	add_column :scheduled_message, :scheduled_at, :time
   end
 end
