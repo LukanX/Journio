@@ -1,0 +1,16 @@
+<% provide(:title, 'Schedules Messages for #{@study.name}')%>
+<h1>Scheduled messages for <%= @study.name %></h1>
+<div class="row">
+	<div class = "span6 offset3">
+		<% if @scheduled_messages.any? %>
+			<ul class = "scheduled-messages">
+				<%= render @scheduled_messages %>
+			</ul>
+			<%= link_to "Return to #{@study.name}", current_study %>
+		<% else %>
+		<h3>There are currently no scheduled messages</h3>
+		<%= link_to "Schedule a message", createstudy_path, class: "btn btn-large btn-primary" %>
+		<%= link_to "Return to #{@study.name}", study_path(@study) %>
+		<% end %>
+	</div>
+</div>

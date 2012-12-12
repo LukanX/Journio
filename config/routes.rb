@@ -1,8 +1,9 @@
 Journio::Application.routes.draw do
 
+
   resources :studies do
     resources :sms, only: [:create]
-    resources :messages, only: [:create]
+    resources :scheduled_messages
     resources :participants do
       resources :single_sms, only: [:create]
     end
@@ -18,6 +19,7 @@ Journio::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  get "scheduled_messages/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

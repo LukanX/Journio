@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129164605) do
+ActiveRecord::Schema.define(:version => 20121206192833) do
 
   create_table "participants", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,28 @@ ActiveRecord::Schema.define(:version => 20121129164605) do
   end
 
   add_index "participants", ["study_id"], :name => "index_participants_on_study_id"
+
+  create_table "scheduled_messages", :force => true do |t|
+    t.string   "message"
+    t.string   "phone_number"
+    t.datetime "scheduled_at"
+    t.time     "sent_at"
+    t.integer  "study_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "scheduled_sms", :force => true do |t|
+    t.string   "message"
+    t.string   "phone_number"
+    t.time     "scheduled_at"
+    t.time     "sent_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "study_id"
+  end
+
+  add_index "scheduled_sms", ["study_id"], :name => "index_scheduled_sms_on_study_id"
 
   create_table "studies", :force => true do |t|
     t.string   "name"

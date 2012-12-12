@@ -1,0 +1,9 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :message %>
+<%= f.text_field :message %>
+
+<%= f.label :scheduled_at, "Send message on:" %>
+<%= f.date_select :scheduled_at %>
+<%= f.label :scheduled_at, "Send message at:" %>
+<%= f.time_select :scheduled_at, :minute_step => 15, :ignore_date => true %>

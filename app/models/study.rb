@@ -12,7 +12,7 @@
 class Study < ActiveRecord::Base
   attr_accessible :description, :name
   has_many :participants, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  has_many :scheduled_messages, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 30 }, uniqueness: true
   validates :description, presence: true, length: { maximum: 140 }

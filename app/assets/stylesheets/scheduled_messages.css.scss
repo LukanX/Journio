@@ -1,0 +1,31 @@
+// Place all the styles related to the Scheduled_Messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1.schedule{
+	font-size: 32px;
+	margin-bottom: .5em;
+	text-align: center;
+}
+
+ul.scheduled-messages{
+	list-style: none;
+	margin-left: 0;
+	li{
+		border: dotted #5fb8dd;
+		margin-bottom: 15px;
+		padding: 10px;
+		border-radius: 5px;
+	}
+	.message{
+		font-size: 18px;
+		color: #1c1c1c;
+		display: block;
+		margin-bottom: .3em;
+	}
+	.scheduled{
+		font-size: 14px;
+		color: #666;
+		font-style: italic;
+	}
+}
