@@ -2,8 +2,13 @@
 
 <%= f.label :message %>
 <%= f.text_field :message %>
-
-<%= f.label :scheduled_at, "Send message on:" %>
-<%= f.date_select :scheduled_at %>
-<%= f.label :scheduled_at, "Send message at:" %>
-<%= f.time_select :scheduled_at, :minute_step => 15, :ignore_date => true %>
+<div class = "date-time">
+	<div class = "date">
+		<%= f.label :scheduled_at, "Send message on:" %>
+		<%= f.text_field :scheduled_at %>
+	</div>
+	<div class = "time">
+		<%= f.label :scheduled_at, "Send message at:" %>
+		<%= f.time_select :scheduled_at, :minute_step => 15 %>
+	</div>
+</div>

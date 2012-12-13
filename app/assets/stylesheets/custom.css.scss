@@ -158,6 +158,21 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
+.date, .time{
+    select{
+      width: 120px;
+      display: inline;
+    }
+    input{
+      width: 180px;
+    }
+    display: inline-block;
+  }
+
+.time{
+  margin-left: 20px;
+}
+
 #error_explanation {
   color: #f00;
   ul {

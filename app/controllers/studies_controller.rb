@@ -5,6 +5,7 @@ class StudiesController < ApplicationController
   def show
   	@study = Study.find(params[:id])
   	@participants = @study.participants.paginate(page: params[:page])
+    @scheduled_message = @study.scheduled_messages.new
   end
 
   def new
