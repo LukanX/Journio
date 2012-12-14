@@ -20,7 +20,7 @@
              <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
           <% end %>
         -->
-          <div class = "scheduling">
+        <div class = "scheduling">
           <%= link_to "schedule a message", new_study_scheduled_message_path(@study) %>
           <% if @study.scheduled_messages.any? %>
             | <%= link_to "view schduled messages", study_scheduled_messages_path(@study) %>

@@ -31,7 +31,11 @@ class ScheduledMessagesController < ApplicationController
   	@scheduled_message = current_study.scheduled_messages.find_by_id(params[:id])
   	@scheduled_message.destroy
   	flash[:success] = "Scheduled message has been canceled"
-  	redirect_to current_study
+    if current_study.scheduled_messages.any?
+      redirect_to study_scheduled_messages_path(current_study)
+    else
+    	redirect_to current_study
+    end
   end
 
   def show

@@ -8,9 +8,11 @@
 			</ul>
 			<%= link_to "Return to #{@study.name}", current_study %>
 		<% else %>
+		<div class = "no-studies">
 		<h3>There are currently no scheduled messages</h3>
-		<%= link_to "Schedule a message", createstudy_path, class: "btn btn-large btn-primary" %>
-		<%= link_to "Return to #{@study.name}", study_path(@study) %>
+			<%= link_to "Schedule a message", new_study_scheduled_message_path(@study), class: "btn btn-large btn-primary" %> <br/>
+			<%= link_to "Return to #{@study.name}", study_path(@study) %>
+		</div>
 		<% end %>
 	</div>
 </div>

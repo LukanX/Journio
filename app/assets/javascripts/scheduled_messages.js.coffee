@@ -5,3 +5,8 @@
 jQuery ->
   $('#scheduled_message_scheduled_at_date').datepicker
     dateFormat: 'yy-mm-dd'
+
+  $('#scheduled_message_scheduled_at_time').timepicker
+  	showOn: 'focus'
+  	showPeriod: true,
+    showLeadingZero: true
