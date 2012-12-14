@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $('#scheduled_message_scheduled_at').datepicker
+  $('#scheduled_message_scheduled_at_date').datepicker
     dateFormat: 'yy-mm-dd'

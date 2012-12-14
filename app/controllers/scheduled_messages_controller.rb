@@ -43,4 +43,17 @@ class ScheduledMessagesController < ApplicationController
     @scheduled_message = ScheduledMessage.find(params[:id])
   end
 
+  def update
+    @scheduled_message = ScheduledMessage.find(params[:id])
+    @study = current_study
+    @participant = @study.participants.find_by_phone_number(@scheduled_message.phone_number)
+    Time.zone = @participant.time_zone
+    if @scheduled_message.update_attributes(params[:scheduled_message])
+      flash[:success] = "Message updated"
+      redirect_to study_scheduled_messages_path(@study)
+    else
+      render 'edit'
+    end
+  end
+
 end
