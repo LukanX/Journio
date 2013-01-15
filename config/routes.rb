@@ -1,6 +1,5 @@
 Journio::Application.routes.draw do
 
-
   resources :studies do
     resources :sms, only: [:create]
     resources :scheduled_messages
@@ -10,6 +9,7 @@ Journio::Application.routes.draw do
   end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :password_resets
   
   root to: 'studies#index'
 

@@ -1,8 +1,6 @@
 Journio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic", "Staging") do |u, p|
-  [u, p] == ['user', 'porkb00m']
-  end
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -62,6 +60,8 @@ Journio::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.action_mailer.default_url_options = { :host => "journio.herokuapp.com" }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
