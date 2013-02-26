@@ -1,6 +1,6 @@
 class DropMessages < ActiveRecord::Migration
   def up
-  	drop_table :messages
+  	#drop_table :messages
   end
 
   def down

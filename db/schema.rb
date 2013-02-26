@@ -28,24 +28,12 @@ ActiveRecord::Schema.define(:version => 20121220194127) do
   create_table "scheduled_messages", :force => true do |t|
     t.string   "message"
     t.string   "phone_number"
+    t.time     "sent_at"
+    t.integer  "study_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.datetime "scheduled_at"
-    t.time     "sent_at"
-    t.integer  "study_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
   end
-
-  create_table "scheduled_sms", :force => true do |t|
-    t.string   "message"
-    t.string   "phone_number"
-    t.time     "scheduled_at"
-    t.time     "sent_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "study_id"
-  end
-
-  add_index "scheduled_sms", ["study_id"], :name => "index_scheduled_sms_on_study_id"
 
   create_table "studies", :force => true do |t|
     t.string   "name"
