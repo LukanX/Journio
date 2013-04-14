@@ -2,6 +2,8 @@
   <span class="message"><%= scheduled_message.message %></span>
   <span class="scheduled">
     Scheduled for: <%= l(scheduled_message.scheduled_at, :format => :sms_timestamp)%>
+    <br>
+    Scheduled to: <%= (scheduled_message.phone_number) %>
   </span>
   <div>
   <%= link_to "edit", edit_study_scheduled_message_path(current_study, scheduled_message.id) %> | <%= link_to "cancel", study_scheduled_message_path(@study, scheduled_message.id), method: :delete,
